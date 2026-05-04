@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/marbles-puzzle/output.txt
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
