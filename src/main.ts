@@ -7,6 +7,8 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
+  console.log(`Loading input from: ${inputFile}`);
+
   const io = await IOHandler.load(inputFile);
   const problem = io.getProblem();
   const algoName = io.getAlgorithmName();
