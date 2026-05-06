@@ -14,12 +14,13 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { ShareButton } from '@/components/ShareButton';
 import { PuzzlePasteBox } from '@/components/PuzzlePasteBox';
 import { ComparisonTable } from '@/components/ComparisonTable';
+import { SearchGraphPanel } from '@/components/SearchGraphPanel';
 import { useWorkerRun } from '@/hooks/useWorkerRun';
 import { useUrlState, readInitialUrlState } from '@/hooks/useUrlState';
 import { useTraceStore } from '@/store/trace-store';
 import { PRESETS } from '@/presets';
 
-type Tab = 'viewer' | 'compare';
+type Tab = 'viewer' | 'graph' | 'compare';
 
 export function App(): JSX.Element {
   const initial = useMemo(() => readInitialUrlState(), []);
@@ -64,6 +65,12 @@ export function App(): JSX.Element {
               className={`px-3 py-1 rounded ${tab === 'viewer' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}
             >
               Viewer
+            </button>
+            <button
+              onClick={() => setTab('graph')}
+              className={`px-3 py-1 rounded ${tab === 'graph' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'}`}
+            >
+              Graph
             </button>
             <button
               onClick={() => setTab('compare')}
@@ -136,7 +143,7 @@ export function App(): JSX.Element {
         </aside>
 
         <main className='space-y-3'>
-          {tab === 'viewer' ? (
+          {tab === 'viewer' && (
             <>
               <div className='grid gap-3 md:grid-cols-3'>
                 <BoardPanel />
@@ -147,9 +154,14 @@ export function App(): JSX.Element {
               </div>
               <Timeline />
             </>
-          ) : (
-            <ComparisonTable inputText={inputText} />
           )}
+          {tab === 'graph' && (
+            <>
+              <SearchGraphPanel />
+              <Timeline />
+            </>
+          )}
+          {tab === 'compare' && <ComparisonTable inputText={inputText} />}
         </main>
       </div>
     </div>

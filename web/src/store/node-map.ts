@@ -25,6 +25,14 @@ export function getNode(key: number): SerializedNode | undefined {
   return map.get(key);
 }
 
+export function getAllNodes(): SerializedNode[] {
+  return Array.from(map.values());
+}
+
+export function getNodeMapSize(): number {
+  return map.size;
+}
+
 export function pathFromRoot(key: number): SerializedNode[] {
   const out: SerializedNode[] = [];
   let curr: SerializedNode | undefined = map.get(key);
