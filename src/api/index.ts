@@ -5,3 +5,4 @@ export * from "./i-problem.js";
 export * from "./node.js";
 export * from "./heuristic-eval.js";
 export * from "./algorithm.js";
+export * from "./search-event.js";

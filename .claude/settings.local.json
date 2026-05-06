@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc *)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(npm run *)",
+      "Bash(node dist/main.js data/marbles-puzzle/inputs/input.txt)",
+      "Bash(node dist/main.js data/marbles-puzzle/inputs/input1.txt)",
+      "Bash(node dist/main.js data/marbles-puzzle/inputs/input2.txt)",
+      "PowerShell(npm.cmd run typecheck 2>&1)",
+      "PowerShell(npm.cmd run build 2>&1)",
+      "PowerShell(node dist/main.js data\\\\marbles-puzzle\\\\inputs\\\\input1.txt; Get-Content data\\\\marbles-puzzle\\\\output.txt)",
+      "PowerShell(Compare-Object *)",
+      "PowerShell(Out-Null *)",
+      "Bash(npx vite *)"
     ]
   }
 }

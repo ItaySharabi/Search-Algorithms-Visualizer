@@ -2,6 +2,10 @@ node_modules/
 dist/
 data/marbles-puzzle/output.txt
 
+# web sub-project
+web/node_modules/
+web/dist/
+
 # Editor / OS
 .vscode/
 .idea/
